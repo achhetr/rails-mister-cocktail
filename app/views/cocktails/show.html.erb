@@ -3,6 +3,9 @@
     <%= @cocktail.name %>
   </h1>
   <div>
+    <%= link_to 'Add Ingredients', new_cocktail_dose_path(params[:id]) %>
+  </div>
+  <div>
     <h3>Ingredients</h3>
       <% @doses.each do |dose|%>
         <p> <%= Ingredient.find(dose.ingredient_id).name %> - <%= dose.description %></p>
