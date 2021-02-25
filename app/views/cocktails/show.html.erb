@@ -1,0 +1,11 @@
+<div class="container">
+  <h1 class="text-center">
+    <%= @cocktail.name %>
+  </h1>
+  <div>
+    <h3>Ingredients</h3>
+      <% @doses.each do |dose|%>
+        <p> <%= Ingredient.find(dose.ingredient_id).name %> - <%= dose.description %></p>
+      <% end %>
+  </div>
+</div>
