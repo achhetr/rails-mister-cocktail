@@ -1,6 +1,9 @@
 <div class="container">
   <h1 class="text-center">Famous Cocktails</h1>
-  <ul>
+  <div>
+    <%= link_to 'Add Cocktail', new_cocktail_path %>
+  </div>
+  <ul class="mt-3">
     <% @cocktails.each do |cocktail| %>
       <li>
         <%= cocktail.name %>
