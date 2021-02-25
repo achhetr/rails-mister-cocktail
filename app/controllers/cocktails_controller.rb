@@ -7,8 +7,23 @@ class CocktailsController < ApplicationController
     @cocktail = Cocktail.find(params[:id])
     @doses = Dose.where(cocktail_id: @cocktail.id)
   end
+
+  def new
+    @cocktail = Cocktail.new
+  end
+
+  def create
+    @cocktail = Cocktail.new(cocktail_params)
+    if @cocktail.save
+      redirect_to cocktails_path
+    else
+      render :new
+    end
+  end
+
+  private
+
+  def cocktail_params
+    params.require(:cocktail).permit(:name)
+  end
 end
-# cocktail doses ingredient
-# mojito => has a half spoom lemon => ingredient
-# mojito => has a orange
-# mojito => has a coconut there
